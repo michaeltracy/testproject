@@ -34,5 +34,31 @@ namespace TestCalc.NSpec
                 };
             };
         }
+
+        void describe_math()
+        {
+            before = () => calc.Number.Execute("1");
+            context["1 plus 1"] = () =>
+            {
+                act = () =>
+                {
+                    calc.Do.Execute("+");
+                    calc.Number.Execute("1");
+                    calc.Do.Execute("=");
+                };
+                it["should be 2"] = () => calc.Output.should_be("2");
+            };
+
+            context["1 minus 1"] = () =>
+            {
+                act = () =>
+                {
+                    calc.Do.Execute("-");
+                    calc.Number.Execute("1");
+                    calc.Do.Execute("=");
+                };
+                it["should be 0"] = () => calc.Output.should_be("0");
+            };
+        }
     }
 }
