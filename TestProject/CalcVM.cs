@@ -46,6 +46,7 @@ namespace TestProject
             {
                 case "=":
                     Output = result.ToString();
+                    result = 0;
                     break;
                 case "+":
                     Output = "";
