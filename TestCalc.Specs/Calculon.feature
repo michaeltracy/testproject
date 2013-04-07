@@ -19,3 +19,12 @@ Scenario: Subtract two numbers
 	And I have entered 50 into the calculator
 	When I press "="
 	Then the result should be 20 on the screen
+
+Scenario: Add two numbers then subtract one
+	Given I have entered 70 into the calculator
+	And I press "+"
+	And I have entered 50 into the calculator
+	And I press "-"
+	And I have entered 20 into the calculator
+	When I press "="
+	Then the result should be 100 on the screen
