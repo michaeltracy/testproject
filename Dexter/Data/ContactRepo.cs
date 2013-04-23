@@ -11,7 +11,6 @@ namespace Dexter.Data
 {
     public class ContactRepo : IDisposable
     {
-        private string connectionString;
         private IDbConnection _conn;
         private IDbCommand _cmd;
 
