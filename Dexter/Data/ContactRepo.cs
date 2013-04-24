@@ -16,6 +16,7 @@ namespace Dexter.Data
 
         public ContactRepo() : 
             this(new NpgsqlConnection(Settings.Default.ConnectionString)) { }
+
         public ContactRepo(IDbConnection conn)
         {
             _conn = conn;
@@ -25,6 +26,11 @@ namespace Dexter.Data
                 _conn.Open();
             }
             _cmd = _conn.CreateCommand();
+        }
+
+        public IDbTransaction StartTransaction()
+        {
+            return _conn.BeginTransaction();
         }
 
         public long Count
